@@ -3,7 +3,7 @@ class Account {
     let currency: String = "BRL"
     weak var client: Client?
 
-    init(client: Client?) {
+    init(client: Client) {
         print ("Account initialized")
         self.client = client
     }
@@ -36,7 +36,7 @@ public struct ReferenceCycles {
     public static func main() {
 
         var client: Client? = Client()
-        var account: Account? = Account(client: client)
+        var account: Account? = Account(client: client!)
         client?.addAccount(account: account!)
 
         client = nil
